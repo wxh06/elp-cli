@@ -5,7 +5,7 @@ from elp.api import _post, post
 
 class Student():
 
-    def __init__(self, session_id=None):
+    def __init__(self, session_id: str = None):
         self.session_id = session_id
 
     def login(self, username: str = None, password: str = None):
