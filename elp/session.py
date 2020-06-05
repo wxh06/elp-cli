@@ -10,8 +10,14 @@ class Student():
     def __init__(self, *args):
         if len(args) == 1:
             self.session_id = args[0]
-        elif len(args):
+        elif len(args) == 2:
             self.login(*args)
+        elif len(args):
+            raise TypeError(
+                f'{self.__init__.__name__}() takes '
+                'from 1 to 3 positional arguments '
+                f'but {len(args) + 1} were given'
+            )
 
     def login(self, username: str = None, password: str = None):
         self.session_id = re.search(
