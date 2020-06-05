@@ -5,8 +5,13 @@ from elp.api import _post, post
 
 class Student():
 
-    def __init__(self, session_id: str = None):
-        self.session_id = session_id
+    session_id = None
+
+    def __init__(self, *args):
+        if len(args) == 1:
+            self.session_id = args[0]
+        elif len(args):
+            self.login(*args)
 
     def login(self, username: str = None, password: str = None):
         self.session_id = re.search(
